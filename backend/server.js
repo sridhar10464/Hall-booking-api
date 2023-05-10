@@ -18,6 +18,14 @@ app.use(bodyparser.json());
 app.use(bodyparser.urlencoded({ extended: false }));
 app.use(cors());
 
+app.get("/", (req, res) => {
+    try {
+        res.json("Get Request")
+    } catch (error) {
+        res.json(error)
+    }
+});
+
 // routes
 app.use("/api/rooms", require("./routes/roomsRoutes"));
 app.use("/api/customers", require("./routes/customerRoutes"));
